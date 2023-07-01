@@ -1,0 +1,6 @@
+- dùng câu lệnh: nest generate module companies  - sẽ tự tạo một folder "companies"
+- nest g res patient - tạo nguyên một folder patient
+
+- nest g module user: tạo folder user và file uer.module.ts trong đó
+- nest g service user --no-spect: tạo file user.service.ts trong folder user, và không có file test
+- nest g controller user --no-spec: tạo file user.controller.ts trong folder user, và không có file test

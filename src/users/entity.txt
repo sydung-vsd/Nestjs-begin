@@ -1,0 +1,4 @@
+Cách Dùng:
+
+- import decorator @Entity của typeorm
+- trước khi khai báo một class Entity phải đánh Decorator và truyền vào đó table_name

@@ -1,0 +1,6 @@
+- giao tiếp giữa các module với nhau, tức là những module này có thể dùng được instanse của module khác
+- muốn dùng module nào thì import vào
+- để hiểu rõ hơn:
+  + cách dùng "storeModule" trong "userModule"
+  + export ở file "store.mudule" và import ở file "user.module"
+  

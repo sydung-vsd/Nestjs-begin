@@ -1,0 +1,18 @@
+----- Khi dùng ValidationPipe phải import 2 package sau: (phải vào package đó đọc thì mới làm được)
++ class-transformer
++ class-validator
+
+- Để có thể ăn được validate thì phải dùng @UsePipe và validationPipe (vào file user.controller.ts method POST để xem), cách này validate cho từng phần nên ít dùng, đọc phần dưới
+- Mỗi @UsePipes(new ValidationPipe()) sẽ chỉ validate cho một method, với cách này ta sẽ phải define cho từng phần, để validate global, tức là validate ở file Dto thì sẽ tự ăn ở các method dùng nó, ta dùng app.useGlobalPipes(new Validationpipe()) trong file main.ts (vào filemain.ts để xem)
+
+- Để validate thì phài đánh @ ở bên file Dto ( vào file Dto để xem ) user.dto.ts
+
+
+
+-----Class-transformer-----
+- giả sử client gửi lên thừa field, thì field sẽ không được validate và BE vẫn nhận được -> không INSERT được vào db -> phải pipe trước khi INSERT vào db
+- cách dùng:
+  + ban đầu, client sẽ gửi lên dữ liệu thô (dữ liệu thừa field)
+  + dùng plainToClass của class-transformer đưa nó về data mong muốn, trong plainToClass truyền vào 3 parameter, plainToClass(Dto_sẽ_parse_về, dữ_liệu_thô, option để xác định lấy về những field đã exposse)
+  + ở file Dto thêm @Exporse() của class-transformer trên những field cần lấy ra (vào file user.dto.ts để xem )
+

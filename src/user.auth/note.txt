@@ -1,0 +1,40 @@
+- tạo table "user_auth" để lưu lại user cho chức năng authentication, (tên của table được viết trong file Entity)
+- tạo file Repository để connect với database
+- import Repository vào module
+- thay đổi trong file "Service", tức viết constructor để có thể sử dụng "Repository"
+- khai báo DTo trong file "dto" tương ứng để handle
+- ở trong file "repository" tạo hàm createuserAuth, tức là việc tạo mới user sẽ được handle ở trong repository, và ở service thì chỉ cần gọi tới
+- việc định nghĩa cho một field là duy nhất trong database, sẽ được quy định ở Entity (vào file \user.auth\entities\user.auth.entity.ts để xem)
+
+-----Hash trước khi lưu vào Database-----
+- mật khẩu sẽ được hash trước khi lưu vào database, và mã sau khi được hash không thể dùng để dò ngược lại mật khẩu, tức là nó chỉ một chiều
+- khi đăng nhập, người dùng sẽ nhập mật khẩu và mật khẩu đó sẽ được hash ra mã, hệ thống sẽ dùng mã này để so sánh với mã đã lưu trong database, nếu giống nhau thì pass (việc hash và so sánh này chúng ta không làm thủ công, mà package đã có hàm hỗ trợ bcrypt.compare(new_password, password_đã-hash-trong-database))
+- trong bài học này sử dụng package "Bcrypt" để hash mật khẩu (yarn add bcrypt)
+- để "hash" được password thì phải truyền password và một mã salt vào, vì vậy phải tạo một mã "salt" trước 
+
+-----JWT (JSON-WEB-TOKEN)-----
+- yarn add @nestjs/jwt @nestjs/passport passport passport-jwt
+- @nestjs/jwt: là một package giúp thao tác với jwt, gồm việc tạo và xác minh jwt
+- step1: import PassportModule vào user.auth module
+- step2: import JwtModule vào user.auth module
+- step3: import JwtService vào constructor của user.auth.service
+- việc tạo accesstoken sẽ do JwtService tạo, và thời hạn của token đã được define ở register trong module
+
+-----JWT Validation-----
+- import @types/passport-jwt
+- tạo file jwt.strategy.ts đồng cấp vs các file service module
+- tạo hàm validate ở trong đó
+- 
+
+
+
+
+
+// Note: nếu cả hai cái cùng một package mà chúng ta regisster một cái ở trong module, thì cái kia chúng ta không thêm nó vào "provider" vì như thế sẽ bị lỗi. Ví dụ:
+    import {JwtModule, JwtService} from '@nestjs/jwt'
+    ...
+    providers: [..., JwtService],
+    imports: [
+        ...,
+        JwtModule.refister({...})
+    ]

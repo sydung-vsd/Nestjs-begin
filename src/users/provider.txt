@@ -1,0 +1,13 @@
+LINK: https://github.com/typeorm/typeorm/blob/master/docs/entities.md
+
+- Các method GET, POST,.. sẽ  được viết trong controller
+- Controller chỉ nhận dữ liệu đầu vào và trả giữ liệu đầu ra, trong này không xử lý logic, nơi xử lý sẽ gọi là 'service' (trong file user.service.ts) và để có thể sử dụng  thì ở file (user.controller.ts) sẽ gọi ra, và phải tạo instance của class mới sử dụng được
+
+- sẽ có một thành phần để tương tác với database sẽ được gọi là 'repository' (trong file user.repository.ts), ở đây chỉ việc chui vào database lấy dữ liệu và trả về có 'service'
+
+- sẽ dùng một cái gọi là 'container' để quản lý tất cả các class của module, ta sẽ dùng 'provider'
+
+- ở service sẽ khai báo các  class ứng với mỗi service, trong mỗi service sẽ khai báo các hàm, để sử dụng các hàm của service thì phải provider nó vào trong module, lúc này ở controller sẽ contructor và Inject service cần sử dụng, các method GET, POST,... sẽ được viết ở controller
+
+- Dto: dành cho request gửi lên
+- Entity: giống với model lưu vào database, trong này có thể defined các phương thức 

@@ -1,0 +1,9 @@
+- Trong typeOrm chúng ta có thể sử dụng cả Active-Record và Data-Mapper patterns.
+- Active-Record và Data-Mapper là các mẫu kiến trúc, Nó được tìm thấy trong phần mềm lưu trữ dữ liệu đối tượng trong bộ nhớ trong CƠ SỞ DỮ LIỆU QUAN HỆ
+- sử dụng Active-Record, chúng ta defined tất cả các query method bên trong chính model, và chúng ta lưu, xóa, load các đối tượng bằng model methods. Nói cách khác, Active-record pattern là một cách tiếp cận để truy cập cơ sở dữ liệu trong các model
+
+- sử dụng Data-Mapper, chúng ta defined tất cả các query method trong các lớp riêng biệt được gọi là "repository", và chúng ta lưu xóa và load các đối tượng bằng cách sử dụng các kho lưu trữ
+- nói đơn giản, Data-Mapper là một cách tiếp cận để truy cập cơ sở dữ liệu của bạn trong các kho lưu trữ thay vì các model
+
+
+NOTE: việc chọn dùng cái nào là tùy vào team và dự án, Phương pháp Data Mapper giúp duy trì khả năng bảo trì, hiệu quả hơn trong các ứng dụng lớn hơn. Cách tiếp cận Bản ghi Hoạt động giúp giữ mọi thứ đơn giản, hoạt động tốt trong các ứng dụng nhỏ hơn. Và sự đơn giản luôn là chìa khóa để bảo trì tốt hơn. -> 1 vote cho Data-Mapper
