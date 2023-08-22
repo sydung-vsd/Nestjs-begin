@@ -22,3 +22,7 @@ export const config: TypeOrmModuleOptions = {
     ],
     // logging: true, // để khi run lên, những table nào được tạo nó sẽ log ra
 }
+
+// commit 1
+// commit 2
+// commit 3
